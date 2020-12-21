@@ -60,14 +60,33 @@ function Song() {
     }
   }
 
+  function moveRange(){
+    setTimeout((event) => {
+      setInput(Math.floor(audio.current.currentTime))
+      audio.current.onended = function (){
+        clearTimeout(event)
+        if(repeticao){
+          audio.current.currentTime = 0
+          audio.current.play()
+        }else{
+          setIndice(indice < Songs.length - 1 ? indice + 1 : indice = 0)
+        }
+      }
+    },1000)
+  }
+
   const clickPause = React.useCallback((event) => {
     switch(event.key){
       case "MediaPlayPause":
           setPlay((d) => !d)
         break;
       case "MediaTrackPrevious":
-          setIndice((i) => i === 0 ? i : i - 1)
-        break;
+          if(aleatorio){
+            setIndice((i) => i < Songs.length - 1 ? i = Math.round(Math.random(Songs.length - 1)) : i = 0)
+          }else{
+            setIndice((i) => i === 0 ? i : i - 1)
+          }
+          break;
       case "MediaTrackNext":
           if(aleatorio){
             setIndice((i) => i < Songs.length - 1 ? i = Math.round(Math.random(Songs.length - 1)) : i = 0)
@@ -93,22 +112,9 @@ function Song() {
   },[play,indice])
 
   if(audio.current !== undefined && audio.current.currentTime !== null){
-    setTimeout((event) => {
-      setInput(Math.floor(audio.current.currentTime))
-      audio.current.onended = function (){
-        clearTimeout(event)
-        if(repeticao){
-          audio.current.currentTime = 0
-          audio.current.play()
-        }else{
-          setIndice(indice < Songs.length - 1 ? indice + 1 : indice = 0)
-        }
-      }
-    },1000)
+    moveRange()
   }
-
   
-
   return (
     <div className="backgroundMusic">
       <img className="imgFundo" src={Songs[indice].img} alt=""/>
