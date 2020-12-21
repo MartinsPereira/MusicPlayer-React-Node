@@ -50,6 +50,20 @@
   margin-top: -6px;
 }
 
+.durationMusic input{
+  margin-top: 10px;
+  width: 100%;
+  height: 4px;
+  outline: none;
+  transition: .3s;
+}
+
+.ordem{
+  height: 19px;
+  width: 23px;
+  cursor: pointer;
+}
+
 .btnsSong{
   display: flex;
   justify-content: space-between;
