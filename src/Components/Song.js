@@ -11,13 +11,15 @@ import imgordenado from '../Assets/svg/aleatorio.svg'
 import imgLinear from '../Assets/svg/linear.svg'
 import imgRepeticao from '../Assets/svg/repetição.svg'
 
-function Song() {
+function Song({data}) {
   const [play, setPlay] = React.useState(false)
   const [input, setInput] = React.useState(0)
   const [aleatorio, setAleatorio] = React.useState(false)
   const [repeticao, setRepeticao] = React.useState(false)
   let [indice, setIndice] = React.useState(0)
   let audio = React.useRef()
+
+  console.log(data)
 
   function playMusic(){
     if(audio.current !== undefined){
@@ -38,38 +40,40 @@ function Song() {
 
   function moveToPrev(){
     if(aleatorio){
-      let numberRandom = Math.round(Math.random() * (Songs.length - 1));
+      let numberRandom = Math.round(Math.random() * (data.length - 1));
       do{
-        numberRandom = Math.round(Math.random() * (Songs.length - 1))
+        numberRandom = Math.round(Math.random() * (data.length - 1))
       }while(numberRandom === indice)
       setIndice(numberRandom)
     }else{
-      setIndice(indice === 0 ? indice : indice - 1)
+      setIndice(indice === 0 ? indice = data.length - 1 : indice - 1)
     }
   }
   
   function moveToNext(){
     if(aleatorio){
-      let numberRandom = Math.round(Math.random() * (Songs.length - 1));
+      let numberRandom = Math.round(Math.random() * (data.length - 1));
       do{
-        numberRandom = Math.round(Math.random() * (Songs.length - 1))
+        numberRandom = Math.round(Math.random() * (data.length - 1))
       }while(numberRandom === indice)
       setIndice(numberRandom)
     }else{
-      setIndice(indice < Songs.length - 1 ? indice + 1 : indice = 0)
+      setIndice(indice < data.length - 1 ? indice + 1 : indice = 0)
     }
   }
 
   function moveRange(){
+    let musica = audio.current;
     setTimeout((event) => {
-      setInput(Math.floor(audio.current.currentTime))
-      audio.current.onended = function (){
+      setInput(Math.floor(musica.currentTime));
+      musica.onended = function (){
         clearTimeout(event)
         if(repeticao){
-          audio.current.currentTime = 0
-          audio.current.play()
+          musica.currentTime = 0;
+          setInput(Math.floor(musica.currentTime));
+          musica.play();
         }else{
-          setIndice(indice < Songs.length - 1 ? indice + 1 : indice = 0)
+          setIndice(indice < data.length - 1 ? indice + 1 : indice = 0)
         }
       }
     },1000)
@@ -82,16 +86,16 @@ function Song() {
         break;
       case "MediaTrackPrevious":
           if(aleatorio){
-            setIndice((i) => i < Songs.length - 1 ? i = Math.round(Math.random(Songs.length - 1)) : i = 0)
+            setIndice((i) => i < data.length - 1 ? i = Math.round(Math.random(data.length - 1)) : i = 0)
           }else{
             setIndice((i) => i === 0 ? i : i - 1)
           }
           break;
       case "MediaTrackNext":
           if(aleatorio){
-            setIndice((i) => i < Songs.length - 1 ? i = Math.round(Math.random(Songs.length - 1)) : i = 0)
+            setIndice((i) => i < data.length - 1 ? i = Math.round(Math.random(data.length - 1)) : i = 0)
           }else{
-            setIndice((i) => i < Songs.length - 1 ? i + 1 : i = 0)
+            setIndice((i) => i < data.length - 1 ? i + 1 : i = 0)
           }
         break;  
       default: 
@@ -117,15 +121,15 @@ function Song() {
   
   return (
     <div className="backgroundMusic">
-      <img className="imgFundo" src={Songs[indice].img} alt=""/>
+      <img className="imgFundo" src={data[indice].img} alt=""/>
       <div className="songIndi">
-        <audio ref={audio} className="audioSong" src={Songs[indice].song}></audio>
+        <audio ref={audio} className="audioSong" src={data[indice].song}></audio>
         <div>
-          <img src={Songs[indice].img} alt=""/>
+          <img src={data[indice].img} alt=""/>
         </div>
         <div className="nameAuthor">
-          <h2>{Songs[indice].title}</h2>
-          <span>{Songs[indice].author}</span>
+          <h2>{data[indice].title}</h2>
+          <span>{data[indice].author}</span>
         </div>
         <div className="durationMusic">
           <input type="range" value={input} onChange={changeRange} min="0" max={audio.current && !!+audio.current.duration && typeof audio.current.duration !== 'boolean' && audio.current.duration}/>

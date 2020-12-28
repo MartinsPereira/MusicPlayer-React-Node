@@ -16,3 +16,13 @@ img{
   display: block;
   max-width: 100%;
 }
+
+body{
+  background: rgb(15,15,15);
+}
+
+.container{
+  max-width: 1400px;
+  margin: 0 auto;
+  position: relative;
+}

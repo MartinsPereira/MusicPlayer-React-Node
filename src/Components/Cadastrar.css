@@ -1,0 +1,108 @@
+.cadastrarMusica{
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  height: 100vh;
+}
+
+.cadastrarMusica > div{
+  display: flex;
+  gap: 30px;
+  flex-wrap: wrap;
+  justify-content: center;
+  margin: 50px 0;
+}
+
+.cadastrarMusica > div > div:nth-child(1){
+  display: flex;
+  align-items: center;
+}
+
+.cadastrarMusica > div > div:nth-child(1) > h2{
+  color: white;
+  font-size: 54px;
+  width: 400px;
+  font-family: 'Roboto', sans-serif, Helvetica;
+  letter-spacing: 1px;
+  color:#E9E319;
+}
+
+.cadastrarMusica > div > form{
+  display: flex;
+  flex-direction: column;
+  background: rgb(38, 38, 41);
+  padding: 40px;
+  width: 450px;
+  border-radius: 10px;
+}
+
+.cadastrarMusica > div > form > input{
+  margin: 5px 0;
+  padding: 17px 15px;
+  border-radius: 5px;
+  background: rgb(15,15,15);
+  border: none;
+  color: white;
+  font-size: 18px;
+  outline: none;
+  letter-spacing: .5px;
+}
+.cadastrarMusica > div > form button{
+  background: #E9E319;
+  border: none;
+  border-radius: 5px;
+  margin-top: 20px;
+  font-size: 20px;
+  font-weight: bold;
+  text-transform: uppercase;
+  font-family: 'Roboto', sans-serif;
+  padding: 12px 0;
+  color: rgb(28, 28, 21);
+  cursor: pointer;
+}
+.cadastrarMusica > div > form button:disabled{
+  background: #E9E44D;
+  color: #4D4C52;
+  cursor: wait;
+}
+.formFile{
+  margin: 5px 0;
+}
+.formFile > div {
+  margin-bottom: 10px;
+}
+.formFile > div label{
+  color: white;
+  display: block;
+  padding: 15px;
+  border-radius: 5px;
+  background: rgb(15,15,15);
+  font-weight: 600;
+  font-family: 'Poppins';
+  text-transform: uppercase;
+  letter-spacing: 1px;
+  position: relative;
+  cursor: pointer;
+}
+.formFile > div label::after{
+  content: "+";
+  position: absolute;
+  right: 20px;
+  font-size: 22px;
+  top: 10px;
+  transition: .3s;
+}
+.formFile > div label:hover::after{
+  transform: rotate(90deg);
+}
+
+.formFile > div label span{
+  display: block;
+  width: 300px;
+  overflow: hidden;
+  text-overflow: ellipsis;
+  white-space: nowrap
+}
+.formFile > div input{
+  display: none;
+}
