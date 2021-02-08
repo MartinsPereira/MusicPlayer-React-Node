@@ -1,51 +1,66 @@
 import React from 'react'
 import { Link } from 'react-router-dom'
-import './header.css'
+import './Header.css'
 import imgHome from '../Assets/svg/home.svg'
-import imgPlusWhite from '../Assets/svg/pluswhite.svg'
-import imgPlus from '../Assets/svg/plus.svg'
+import imgAlbum from '../Assets/svg/music-album.svg'
+import imgMusic from '../Assets/svg/AddMusic.svg'
+import imgLogout from '../Assets/svg/logout.svg'
+import imgPlaylist from '../Assets/svg/Playlist.svg'
 import { GlobalContext} from './GlobalContext'
+import CadastrarPlaylist from './Cadastrar/CadastrarPlaylist'
+import ListaPlayList from './Listagem/ListaPlayList'
  
 const Header = () => {
-  const {menu, setMenu} = React.useContext(GlobalContext)
+  const {login, logout} = React.useContext(GlobalContext)
   const menus = React.useRef()
   const header = React.useRef()
+  const [showModal, setShowModal] = React.useState(false)
 
-  React.useEffect(() => {
-    if(header.current){
-      if(!menu){
-        setMenu(false)
-        header.current.classList.remove('show')
-        menus.current.style.opacity = '0'
-        setTimeout(() => {
-          menus.current.classList.remove('show')
-        }, 250);
-      }else{
-        setMenu(true)
-        header.current.classList.add('show')
-        menus.current.classList.add('show')
-        setTimeout(() => {
-          menus.current.style.opacity = '1'
-        }, 250);
-      }
+  function showModalCadastrar(){
+    document.querySelector('.showCadastrarPlayList').classList.add('show')
+    document.querySelector('.cadastrarPlayList').addEventListener('click',cliqueForaModal)
+    setShowModal(true)
+  }
+  
+  function cliqueForaModal(event){
+    if(event.target === this){
+      document.querySelector('.showCadastrarPlayList').classList.remove('show')
+      setShowModal(false)
     }
-  },[menu])
+  }
 
+  if(login)
   return (
+    <>
     <header ref={header} className="header">
-      <div className="container">
-        <nav>
-          <ul>
-            <li onClick={() => setMenu((d) => !d)}><img src={imgPlusWhite} alt=""/></li>
-          </ul>
-          <ul ref={menus} className="menu">
-            <li><Link to="/"><img src={imgHome} alt=""/></Link></li>
-            <li><Link to="/cadastrar"><img src={imgPlus} alt=""/></Link></li>
-          </ul>
-        </nav>
+      <div>
+        <div className="header-content">
+          <nav>
+            <ul ref={menus} className="menu">
+              <li><Link to="/"><img src={imgHome} alt="Home"/> <span className="nameMenu">Home</span></Link></li>
+              <li><Link to="/lista/album"><img src={imgAlbum} alt="Album"/> <span className="nameMenu">Álbuns</span></Link></li>
+            </ul>
+            <ul className="playList">
+              <li>
+                <img src={imgPlaylist} alt="PlayList"/>
+                <span>PlayLists</span>
+              </li>
+              <ListaPlayList />
+              <li className="criarPlayList"><button onClick={showModalCadastrar}>Criar Playlist</button></li>
+            </ul>
+            <ul className="sair">
+              <li><span><img src={imgLogout} onClick={logout} alt="Sair"/></span></li>
+            </ul>
+          </nav>
+        </div>
       </div>
     </header>
+    <div className="showCadastrarPlayList">
+      <CadastrarPlaylist ShowModal={showModal} />
+    </div>
+    </>
   )
+  else return null
 }
 
 export default Header

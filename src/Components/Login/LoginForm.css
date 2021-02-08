@@ -1,0 +1,84 @@
+.login{
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  height: 100vh;
+}
+
+.login > div{
+  background: rgb(40, 40, 42);
+  padding: 25px;
+  border-radius: 10px;
+  width: 400px;
+}
+
+.inputForm{
+  margin: 25px 0;
+}
+
+.login > div input{
+  display: block;
+  width: 100%;
+  margin: 18px 0;
+  padding: 15px 10px;
+  background: rgb(18,18,18);
+  border: none;
+  border-radius: 6px;
+  letter-spacing: .7px;
+  font-family: "Poppins",sans-serif, Helvetica;
+  font-size: 15px;
+  color: white;
+  outline: none;
+}
+
+.esqueceuSenha{
+  color: #d6d121;
+  font-weight: 500;
+  letter-spacing: .5px;
+  font-size: 15px;
+  font-family: 'Roboto', helvetica, sans-serif;
+}
+
+.login > div legend{
+  color: #E9E319;
+  font-size: 24px;
+  font-family: "Poppins",helvetica, sans-serif;
+  letter-spacing: 1px;
+  font-weight: bold;
+  display: flex;
+  align-items: center;
+}
+
+.login > div legend::after{
+  content: "";
+  height: 4px;
+  width: 26px;
+  background: #E9E319;
+  margin-left: 10px;
+  border-radius: 1px;
+}
+
+.login > div button{
+  width: 100%;
+  display: block;
+  margin: 16px auto;
+  padding: 9px 10px;
+  font-family: "Poppins", 'Roboto', helvetica;
+  font-size: 19px;
+  font-weight: bold;
+  letter-spacing: 1px;
+  border: none;
+  background: #E9E319;
+  text-transform: uppercase;
+  outline: none;
+  cursor: pointer;
+}
+
+.login > div > form > p{
+  color: rgb(180,180,180);
+}
+
+.login > div > form > p a{
+  color: #E9E319;
+}
+

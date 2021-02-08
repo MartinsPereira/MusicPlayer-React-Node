@@ -1,0 +1,90 @@
+.playerFooter{
+  display: flex;
+  justify-content: space-between;
+  background: #282828;
+  align-items: center;
+  padding: 15px 20px;
+  position: fixed;
+  bottom: 0;
+  width: 100%;
+}
+
+.playerFooter_left {
+  display: flex;
+  width: 200px;
+}
+
+.playerFooter_left > div:nth-child(1){
+  width: 60px;
+  height: 60px;
+}
+
+.playerFooter_left > div:nth-child(1) img{
+  height: 100%;
+  width: 100%;
+  object-fit: cover;
+}
+
+.playerFooter_left > div:nth-child(2){
+  margin-left: 12px;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+}
+
+.playerFooter_left > div:nth-child(2) h4, .playerFooter_left > div:nth-child(2) span{
+  color: white;
+}
+
+.playerFooter_middle{
+  width: 600px;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  gap: 4px;
+}
+
+.playerFooter_middle > div:nth-child(1) {
+  display: flex;
+  align-items: center;
+  gap: 33px;
+}
+
+.playerFooter_middle > div:nth-child(1) button{
+  background: none;
+  border: none;
+  outline: none;
+  cursor: pointer;
+}
+
+.buttonPlay{
+  height: 30px;
+}
+
+.buttonsPrevNext img{
+  width: 22px;
+}
+
+.playerFooter_middle > div:nth-child(2),.playerFooter_middle > div:nth-child(2) input{
+  width: 100%;
+}
+
+.playerFooter_middle > div:nth-child(2) input{
+  height: 4px;
+}
+
+.controleSom > div{
+  display: flex;
+  align-items: center;
+  gap: 10px;
+}
+
+.controleSom > div img{
+  width: 25px;
+}
+
+.controleSom > div input{
+  height: 4px;
+  width: 100px;
+  outline: none;
+}

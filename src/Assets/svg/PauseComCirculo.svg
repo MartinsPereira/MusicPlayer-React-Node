@@ -1,0 +1,14 @@
+<svg xmlns="http://www.w3.org/2000/svg" width="51" height="51" viewBox="0 0 51 51">
+  <g id="PauseComCirculo" transform="translate(-640 -1713)">
+    <g id="PlayComCirculo" transform="translate(-33 -3)">
+      <g id="Elipse_6" data-name="Elipse 6" transform="translate(673 1716)" fill="none" stroke="#fffcfc" stroke-width="2">
+        <circle cx="25.5" cy="25.5" r="25.5" stroke="none"/>
+        <circle cx="25.5" cy="25.5" r="24.5" fill="none"/>
+      </g>
+    </g>
+    <g id="Pause" transform="translate(304 357.381)">
+      <rect id="Retângulo_5" data-name="Retângulo 5" width="6" height="21" rx="3" transform="translate(353 1370.619)" fill="#fff"/>
+      <rect id="Retângulo_6" data-name="Retângulo 6" width="6" height="21" rx="3" transform="translate(364 1370.619)" fill="#fff"/>
+    </g>
+  </g>
+</svg>

@@ -11,16 +11,16 @@ import audioAlibaba from '../../Assets/Songs/AliBaba - Bando (Official Audio)_12
 
 const Songs = [
   {
-    title: "Alone",
-    author: "Marshmello",
-    song: audioMarsh,
-    img: imgMarsh
-  },
-  {
     title: "Sunflower",
     author: "Post Malone",
     song: audioSpider,
     img: imgSpider
+  },
+  {
+    title: "Alone",
+    author: "Marshmello",
+    song: audioMarsh,
+    img: imgMarsh
   },
   {
     title: "Blinding Lights",

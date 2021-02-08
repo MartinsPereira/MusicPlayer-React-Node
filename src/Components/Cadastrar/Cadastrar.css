@@ -36,7 +36,7 @@
   border-radius: 10px;
 }
 
-.cadastrarMusica > div > form > input{
+.formMusic > input{
   margin: 5px 0;
   padding: 17px 15px;
   border-radius: 5px;
@@ -47,7 +47,7 @@
   outline: none;
   letter-spacing: .5px;
 }
-.cadastrarMusica > div > form button{
+.formMusic button{
   background: #E9E319;
   border: none;
   border-radius: 5px;
@@ -60,7 +60,7 @@
   color: rgb(28, 28, 21);
   cursor: pointer;
 }
-.cadastrarMusica > div > form button:disabled{
+.formMusic button:disabled{
   background: #E9E44D;
   color: #4D4C52;
   cursor: wait;

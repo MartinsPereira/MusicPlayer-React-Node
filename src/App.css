@@ -18,11 +18,21 @@ img{
 }
 
 body{
-  background: rgb(15,15,15);
+  background: rgb(29,29,29);
 }
 
 .container{
   max-width: 1400px;
-  margin: 0 auto;
+  margin: 0 auto 0 200px;
   position: relative;
+  padding: 20px;
+}
+
+.naoSelecionavel {
+  -webkit-touch-callout: none; 
+  -webkit-user-select: none;  
+  -khtml-user-select: none;    
+  -moz-user-select: none;       
+  -ms-user-select: none;        
+  user-select: none;           
 }
